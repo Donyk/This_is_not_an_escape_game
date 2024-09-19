@@ -1,0 +1,188 @@
+<body>
+    <h1>Solve all riddles and find a surprise</h1>
+    <div class="text-section">
+        <p>
+            6 may
+            <select class="dateDropdown" id="dropdown1">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown2">
+                <option value="" disabled selected>Month</option>
+            </select> 
+            au 
+            <select class="dateDropdown" id="dropdown3">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown4">
+                <option value="" disabled selected>Month</option>
+            </select> 9 may.
+        </p> <br>
+        <p>
+            11 may:
+            <select class="dateDropdown" id="dropdown5">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown6">
+                <option value="" disabled selected>Month</option>
+            </select><br>
+
+            22 may:
+            <select class="dateDropdown" id="dropdown7">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown8">
+                <option value="" disabled selected>Month</option>
+            </select><br>
+
+            24 may:
+            <select class="dateDropdown" id="dropdown9">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown10">
+                <option value="" disabled selected>Month</option>
+            </select>
+        </p> <br>
+        <p>
+            May 28th:
+            <select class="dateDropdown" id="dropdown11">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown12">
+                <option value="" disabled selected>Month</option>
+            </select><br>
+
+            It's <a href="https://donyk.github.io/itsbinary/" target="_blank">binary</a> → 100th of 110th :
+            <select class="dateDropdown" id="dropdown13">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown14">
+                <option value="" disabled selected>Month</option>
+            </select><br>
+            
+            5 june:
+            <select class="dateDropdown" id="dropdown15">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown16">
+                <option value="" disabled selected>Month</option>
+            </select><br>
+
+            7 june:
+            <select class="dateDropdown" id="dropdown17">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown18">
+                <option value="" disabled selected>Month</option>
+            </select><br>
+        
+            10 june:
+            <select class="dateDropdown" id="dropdown19">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown20">
+                <option value="" disabled selected>Month</option>
+            </select>
+        </p> <br>
+        <p>
+            12 june
+            <select class="dateDropdown" id="dropdown21">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown22">
+                <option value="" disabled selected>Month</option>
+            </select> 13 june 
+            <select class="dateDropdown" id="dropdown23">
+                <option value="" disabled selected>Date</option>
+            </select>
+            <select class="monthDropdown" id="dropdown24">
+                <option value="" disabled selected>Month</option>
+            </select>
+        </p>
+    </div>
+    
+    <div class="fireworks" id="fireworks">
+        <img src="RJIJ.gif" alt="Fireworks">
+    </div>
+
+    <script>
+        // Function to populate date and month dropdowns
+        function populateDropdowns() {
+            const dateDropdowns = document.querySelectorAll('.dateDropdown');
+            const monthDropdowns = document.querySelectorAll('.monthDropdown');
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            dateDropdowns.forEach(dropdown => {
+                for (let i = 1; i <= 31; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.text = i;
+                    dropdown.appendChild(option);
+                }
+            });
+
+            monthDropdowns.forEach(dropdown => {
+                months.forEach((month, index) => {
+                    const option = document.createElement('option');
+                    option.value = index + 1;
+                    option.text = month;
+                    dropdown.appendChild(option);
+                });
+            });
+        }
+
+        // Check if specific combination is set
+        function checkCombination() {
+            const dropdowns = [
+                { date: document.getElementById('dropdown1').value, month: document.getElementById('dropdown2').value },
+                { date: document.getElementById('dropdown3').value, month: document.getElementById('dropdown4').value },
+                { date: document.getElementById('dropdown5').value, month: document.getElementById('dropdown6').value },
+                { date: document.getElementById('dropdown7').value, month: document.getElementById('dropdown8').value },
+                { date: document.getElementById('dropdown9').value, month: document.getElementById('dropdown10').value },
+                { date: document.getElementById('dropdown11').value, month: document.getElementById('dropdown12').value }, // Missing comma was here
+                { date: document.getElementById('dropdown13').value, month: document.getElementById('dropdown14').value },
+                { date: document.getElementById('dropdown15').value, month: document.getElementById('dropdown16').value },
+                { date: document.getElementById('dropdown17').value, month: document.getElementById('dropdown18').value },
+                { date: document.getElementById('dropdown19').value, month: document.getElementById('dropdown20').value },
+                { date: document.getElementById('dropdown21').value, month: document.getElementById('dropdown22').value },
+                { date: document.getElementById('dropdown23').value, month: document.getElementById('dropdown24').value }
+            ];
+
+            const specificCombination = [
+                { date: '6', month: '5' },
+                { date: '9', month: '5' },
+                { date: '11', month: '5' },
+                { date: '22', month: '5' },
+                { date: '24', month: '5' },
+                { date: '28', month: '5' },
+                { date: '4', month: '6' },
+                { date: '5', month: '6' },
+                { date: '7', month: '6' },
+                { date: '10', month: '6' },
+                { date: '12', month: '6' },
+                { date: '13', month: '6' }
+            ];
+
+            let allMatch = dropdowns.every((dropdown, index) => 
+                dropdown.date === specificCombination[index].date &&
+                dropdown.month === specificCombination[index].month
+            );
+
+            if (allMatch) {
+                document.getElementById('fireworks').style.display = 'flex';
+                setTimeout(() => {
+                    document.getElementById('fireworks').style.display = 'none';
+                }, 6000); // Display fireworks for 3 seconds
+            }
+        }
+
+        // Event listeners for dropdowns
+        document.addEventListener('change', checkCombination);
+
+        // Populate dropdowns on page load
+        document.addEventListener('DOMContentLoaded', populateDropdowns);
+    </script>
+</body>
+
