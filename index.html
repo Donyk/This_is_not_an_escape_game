@@ -1,5 +1,5 @@
 <body>
-    <h1>Solve all riddles and find a surprise</h1>
+    <h1>Solve all riddles</h1>
     <div class="text-section">
         <p>
             6 may
@@ -99,10 +99,11 @@
             </select>
         </p>
     </div>
-
+    
     <div class="fireworks" id="fireworks" style="display: none;">
-        <img src="RJIJ.gif" alt="Fireworks">
-    </div>
+        <img src="Ben.gif" alt="Fireworks">
+    <p id="message" style="display: none;">This took longer than <b>1 second</b>.<br>Now what should I do with these dates ?</p>
+</div>
 
     <script>
         // Function to populate date and month dropdowns
@@ -172,11 +173,13 @@
 
             if (allMatch) {
                 document.getElementById('fireworks').style.display = 'flex';
+                document.getElementById('message').style.display = 'block'; // Show message when fireworks appear
                 setTimeout(() => {
                     document.getElementById('fireworks').style.display = 'none';
-                }, 6000); // Display fireworks for 3 seconds
+                    document.getElementById('message').style.display = 'none'; // Hide message and fireworks after 10 minutes
+                }, 600000); // Display fireworks for 10 minutes
             }
-        }
+            }
 
         // Event listeners for dropdowns
         document.addEventListener('change', checkCombination);
