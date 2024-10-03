@@ -51,7 +51,7 @@
                 <option value="" disabled selected>Month</option>
             </select><br>
 
-            It's <a href="https://donyk.github.io/itsbinary/" target="_blank">binary</a> → 100th of 110th :
+            It's <a href="https://donyk.github.io/itsbinary/" target="_blank">binary</a> → 100 of 110 :
             <select class="dateDropdown" id="dropdown13">
                 <option value="" disabled selected>Date</option>
             </select>
@@ -100,11 +100,27 @@
         </p>
     </div>
     
-<div class="fireworks" id="fireworks" style="display: none;">
-    <img src="Ben.gif" alt="Fireworks" style="display: block; margin-bottom: 20px;">
-    <p id="message" style="display: none;">Good Job !! The next step will take longer than <b>1 second</b>.<br>Now what should I do with these dates?</p>
-</div>
+<style>
+.fireworks {
+    text-align: center; /* Center the content */
+}
 
+.fireworks img {
+    max-width: 100%; /* Prevents the image from exceeding the div width */
+    height: auto; /* Maintains aspect ratio */
+}
+
+.fireworks #message {
+    display: none; /* Hidden by default, toggle this with JS */
+    margin-top: 20px; /* Space between image and text */
+    text-align: left; /* Aligns text to the left */
+}
+</style>
+
+<div class="fireworks" id="fireworks" style="display: none;">
+    <img src="Ben.gif" alt="Fireworks">
+    <p id="message">Good Job !! The next step will take longer than <b>1 second</b>.<br>Now what should I do with these dates?</p>
+</div>
     <script>
         // Function to populate date and month dropdowns
         function populateDropdowns() {
